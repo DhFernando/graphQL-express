@@ -2,7 +2,15 @@ const express = require("express")
 const expressGraphQL = require("express-graphql")
 const app = express() 
 const schema = require("./schema/schema")
- 
+const mongoose = require("mongoose")
+
+
+const url = 'mongodb://localhost/gql-lib'
+
+mongoose.connect(url , { useNewUrlParser : true ,  useUnifiedTopology: true })
+const con = mongoose.connection
+
+con.on('open' , ()=> console.log( 'Connected to DB' ))
 
 //----------<<<<< < ** Root resolution ** > >>>>>----------\\
 const root = {
