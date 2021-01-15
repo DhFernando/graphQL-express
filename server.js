@@ -1,16 +1,8 @@
 const express = require("express")
 const expressGraphQL = require("express-graphql")
-const app = express()
-const { buildSchema } = require("graphql")
-
-
-//----------<<<<< < ** Graphql Schema ** > >>>>>----------\\
-const schema = buildSchema(`
-    type Query {
-        message : String
-    }
-`)
-
+const app = express() 
+const schema = require("./schema/schema")
+ 
 
 //----------<<<<< < ** Root resolution ** > >>>>>----------\\
 const root = {
